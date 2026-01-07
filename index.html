@@ -1,0 +1,2057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Professional resume of James (An) Lin - Software Engineer with 12+ years of experience in backend development">
+    <meta name="keywords" content="James Lin, Software Engineer, Backend Developer, Resume, Tech Professional">
+    <meta name="author" content="James (An) Lin">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="James (An) Lin - Resume">
+    <meta property="og:description" content="Staff Software Engineer with expertise in scalable distributed systems">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <title>James (An) Lin - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            text-align: center;
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .golden-gate-bridge {
+            width: 100%;
+            max-width: 800px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .golden-gate-bridge:hover {
+            opacity: 1;
+        }
+
+        @media print {
+            .golden-gate-bridge {
+                display: none !important;
+            }
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            border-radius: 2px;
+        }
+
+        h1 {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from { filter: brightness(1); }
+            to { filter: brightness(1.1); }
+        }
+
+        .location {
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .contact {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            background: linear-gradient(135deg, #2980b9, #3498db);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .contact-item:hover::before {
+            left: 100%;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+        }
+
+        .contact a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .action-section {
+            margin-top: 25px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .generate-pdf-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            border: none;
+            font-weight: 600;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .generate-pdf-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .generate-pdf-btn:hover::before {
+            left: 100%;
+        }
+
+        .generate-pdf-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+        }
+
+        .generate-pdf-btn:active {
+            transform: translateY(0);
+        }
+
+        .generate-pdf-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .action-hint {
+            color: #7f8c8d;
+            font-size: 0.85em;
+            text-align: center;
+        }
+
+        /* PDF Generator Section - Outside container */
+        .pdf-generator-section {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+            max-width: 200px;
+        }
+
+        .pdf-generator-section .generate-pdf-btn {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            color: #27ae60;
+            border: 2px solid rgba(39, 174, 96, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .pdf-generator-section .generate-pdf-btn:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border-color: rgba(39, 174, 96, 0.6);
+        }
+
+        .pdf-generator-section .generate-pdf-btn::before {
+            background: linear-gradient(90deg, transparent, rgba(39, 174, 96, 0.1), transparent);
+        }
+
+        .pdf-generator-section .generate-pdf-btn:hover::before {
+            left: 100%;
+        }
+
+
+        .ai-assistant-btn {
+            margin-top: 10px;
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            border-color: rgba(155, 89, 182, 0.3);
+        }
+
+        .ai-assistant-btn:hover {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            border-color: rgba(155, 89, 182, 0.6);
+        }
+
+        /* AI Assistant Modal */
+        .ai-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .ai-modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 0;
+            border: none;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .ai-modal-header {
+            padding: 20px;
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ai-modal-header h3 {
+            margin: 0;
+            color: white;
+            font-size: 1.3em;
+        }
+
+        .ai-close {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .ai-close:hover {
+            opacity: 0.7;
+        }
+
+        .ai-modal-body {
+            padding: 20px;
+            overflow-y: auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ai-chat-container {
+            flex: 1;
+            min-height: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .ai-message {
+            margin-bottom: 15px;
+            padding: 12px;
+            border-radius: 10px;
+            line-height: 1.6;
+        }
+
+        .ai-bot-message {
+            background: #e8f4f8;
+            border-left: 4px solid #3498db;
+        }
+
+        .ai-user-message {
+            background: #e8f5e9;
+            border-left: 4px solid #27ae60;
+            text-align: right;
+        }
+
+        .ai-message p {
+            margin: 5px 0;
+        }
+
+        .ai-message ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .ai-input-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        #aiInput {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 0.95em;
+        }
+
+        #aiInput:focus {
+            outline: none;
+            border-color: #9b59b6;
+        }
+
+        .ai-send-btn {
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .ai-send-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(155, 89, 182, 0.4);
+        }
+
+        .ai-api-key-container {
+            margin-top: 15px;
+            padding: 15px;
+            background: #fff3cd;
+            border-radius: 8px;
+            border: 1px solid #ffc107;
+        }
+
+        .ai-api-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .ai-modal-content {
+                width: 95%;
+                margin: 10% auto;
+                max-height: 85vh;
+            }
+
+            .ai-chat-container {
+                min-height: 200px;
+                max-height: 300px;
+            }
+
+            .pdf-generator-section {
+                flex-direction: column;
+            }
+
+            .ai-assistant-btn {
+                margin-top: 10px;
+            }
+        }
+
+
+        .pdf-generator-hint {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 8px 12px;
+            border-radius: 20px;
+            color: #666;
+            font-size: 0.75em;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .pdf-generator-hint:hover {
+            opacity: 1;
+        }
+
+        section {
+            margin-bottom: 40px;
+            animation: slideInLeft 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        section:nth-child(1) { animation-delay: 0.2s; }
+        section:nth-child(2) { animation-delay: 0.4s; }
+        section:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h2 {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .company {
+            color: #27ae60;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: linear-gradient(135deg, rgba(39, 174, 96, 0.1), rgba(46, 204, 113, 0.1));
+            border-radius: 10px;
+            border-left: 4px solid #27ae60;
+        }
+
+        .job-meta {
+            color: #7f8c8d;
+            font-size: 0.95em;
+            font-weight: 500;
+        }
+
+        .job-description {
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(39, 174, 96, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        ul li:hover {
+            background: rgba(39, 174, 96, 0.1);
+            transform: translateX(5px);
+        }
+
+
+        ul li strong {
+            color: #2c3e50;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+
+        .tech-stack {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid rgba(39, 174, 96, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-stack::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+        }
+
+        .tech-stack strong {
+            color: #34495e;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .tech-stack span {
+            display: inline-block;
+            background: linear-gradient(135deg, #2980b9, #3498db);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            margin: 3px 6px 3px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
+        }
+
+        .tech-stack span:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4);
+        }
+
+        .education-item {
+            background: rgba(39, 174, 96, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #27ae60;
+            margin-bottom: 15px;
+        }
+
+        .education-item strong {
+            color: #2c3e50;
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .education-item em {
+            color: #7f8c8d;
+            font-style: normal;
+        }
+
+        @media print {
+            body {
+                background: white !important;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none !important;
+                padding: 20px !important;
+                border-radius: 0 !important;
+            }
+            .contact-item {
+                background: #2980b9 !important;
+            }
+        }
+
+        /* Tablet Styles */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 30px;
+                margin: 15px;
+            }
+            h1 {
+                font-size: 2.5em;
+            }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                overflow-x: hidden;
+            }
+
+            * {
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+
+            .container {
+                padding: 20px;
+                margin: 5px;
+                border-radius: 15px;
+                width: calc(100% - 10px);
+                box-sizing: border-box;
+                overflow-x: hidden;
+            }
+
+            .golden-gate-bridge {
+                height: 150px;
+                margin-bottom: 20px;
+                border-radius: 10px;
+            }
+
+            h1 {
+                font-size: 2em;
+                margin-bottom: 10px;
+            }
+
+            .location {
+                font-size: 1em;
+                margin-bottom: 20px;
+            }
+
+            .contact {
+                flex-direction: column;
+                gap: 10px;
+                align-items: stretch;
+                width: 100%;
+            }
+
+            .contact-item {
+                padding: 10px 16px;
+                font-size: 0.9em;
+                width: 100%;
+                max-width: 100%;
+                text-align: center;
+                box-sizing: border-box;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            .contact-item a {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            h2 {
+                font-size: 1.5em;
+                margin-bottom: 15px;
+            }
+
+            .job-header {
+                flex-direction: column;
+                text-align: center;
+                padding: 12px;
+                margin-bottom: 15px;
+            }
+
+            .job-header h3 {
+                margin-bottom: 5px;
+                font-size: 1.1em;
+            }
+
+            .job-meta {
+                font-size: 0.9em;
+            }
+
+            ul li {
+                padding: 16px;
+                margin-bottom: 14px;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                line-height: 1.7;
+                display: block;
+            }
+
+            ul li strong {
+                display: block;
+                margin-bottom: 10px;
+                margin-top: 0;
+                line-height: 1.5;
+                font-size: 1.05em;
+                width: 100%;
+            }
+
+            /* Ensure text after strong tag starts on new line */
+            ul li {
+                white-space: normal;
+            }
+
+            .job-description {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                line-height: 1.6;
+            }
+
+            .tech-stack {
+                padding: 15px;
+                margin-top: 15px;
+            }
+
+            .tech-stack span {
+                padding: 3px 8px;
+                font-size: 0.8em;
+                margin: 2px 3px 2px 0;
+            }
+
+            .education-item {
+                padding: 15px;
+            }
+
+            section {
+                margin-bottom: 30px;
+            }
+        }
+
+        /* Small Mobile Styles */
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+                margin: 2px;
+                width: calc(100% - 4px);
+                box-sizing: border-box;
+                overflow-x: hidden;
+            }
+
+            h1 {
+                font-size: 1.8em;
+                word-wrap: break-word;
+            }
+
+            .location {
+                font-size: 0.95em;
+            }
+
+            .contact {
+                gap: 8px;
+            }
+
+            .contact-item {
+                padding: 12px 16px; /* Better touch target */
+                font-size: 0.85em;
+                max-width: 100%;
+                width: 100%;
+                min-height: 44px; /* iOS touch target minimum */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-sizing: border-box;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+
+            .contact-item a {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                max-width: 100%;
+            }
+
+            h2 {
+                font-size: 1.3em;
+                word-wrap: break-word;
+            }
+
+            h3 {
+                font-size: 1.1em;
+                word-wrap: break-word;
+            }
+
+            .job-description {
+                font-size: 0.95em;
+                line-height: 1.5;
+            }
+
+            ul li {
+                padding: 16px;
+                font-size: 0.9em;
+                min-height: 44px; /* Better touch target */
+                display: block;
+                line-height: 1.7;
+                margin-bottom: 14px;
+            }
+
+            ul li strong {
+                display: block;
+                margin-bottom: 10px;
+                margin-top: 0;
+                line-height: 1.5;
+                font-size: 1.05em;
+                width: 100%;
+            }
+
+            /* Ensure text after strong tag starts on new line */
+            ul li {
+                white-space: normal;
+            }
+
+            .tech-stack {
+                padding: 15px;
+            }
+
+            .tech-stack span {
+                min-height: 32px; /* Better touch target */
+                display: inline-flex;
+                align-items: center;
+                margin: 4px 4px 4px 0;
+            }
+
+            .education-item {
+                padding: 15px;
+            }
+
+            .job-header {
+                padding: 15px 12px;
+            }
+
+            .action-section {
+                gap: 10px;
+            }
+
+            .generate-pdf-btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .pdf-generator-section {
+                position: static;
+                margin: 20px auto 0;
+                max-width: 100%;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 0 10px;
+                box-sizing: border-box;
+            }
+
+            .pdf-generator-section .generate-pdf-btn {
+                width: 100%;
+                max-width: 100%;
+                font-size: 0.95em;
+                box-sizing: border-box;
+            }
+
+            .pdf-generator-hint {
+                font-size: 0.8em;
+                max-width: 100%;
+                width: 100%;
+                text-align: center;
+                box-sizing: border-box;
+            }
+        }
+
+        /* Web/Desktop Enhancements */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1000px;
+                padding: 60px;
+            }
+
+            h1 {
+                font-size: 3.2em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            .contact {
+                gap: 30px;
+            }
+
+            .contact-item {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+
+            .job-header {
+                padding: 20px;
+            }
+
+            .tech-stack {
+                padding: 25px;
+            }
+
+            .tech-stack span {
+                padding: 5px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        /* Touch Device Optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .contact-item:hover::before {
+                display: none;
+            }
+
+            .contact-item:hover {
+                transform: none;
+                box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            }
+
+            .tech-stack span:hover {
+                transform: none;
+                box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
+            }
+
+            ul li:hover {
+                background: rgba(39, 174, 96, 0.08);
+                transform: none;
+            }
+
+            .contact-item {
+                padding: 12px 20px;
+                font-size: 0.95em;
+            }
+        }
+
+        /* High DPI Displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .container {
+                box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            }
+        }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+                color: #e2e8f0;
+            }
+
+            .container {
+                background: rgba(45, 55, 72, 0.95);
+                color: #e2e8f0;
+            }
+
+            .job-description,
+            ul li {
+                color: #cbd5e0;
+            }
+
+            .job-header {
+                background: rgba(39, 174, 96, 0.15);
+            }
+
+            ul li {
+                background: rgba(39, 174, 96, 0.08);
+            }
+
+            ul li:hover {
+                background: rgba(39, 174, 96, 0.15);
+            }
+
+            .tech-stack {
+                background: linear-gradient(135deg, rgba(45, 55, 72, 0.8), rgba(26, 32, 44, 0.8));
+                border: 1px solid rgba(39, 174, 96, 0.3);
+            }
+
+            .education-item {
+                background: rgba(39, 174, 96, 0.08);
+            }
+        }
+
+        /* PDF Generation Styles */
+        @media screen and (max-width: 0) {
+            .action-section, .pdf-generator-section {
+                display: none !important;
+            }
+        }
+
+        /* PDF Compact Layout Styles */
+        .pdf-compact-mode {
+            font-size: 85% !important;
+            line-height: 1.3 !important;
+        }
+
+        .pdf-compact-mode .container {
+            padding: 15px !important;
+            max-width: none !important;
+            margin: 0 !important;
+        }
+
+        .pdf-compact-mode h1 {
+            font-size: 2.2em !important;
+            margin-bottom: 8px !important;
+        }
+
+        .pdf-compact-mode .location {
+            font-size: 0.95em !important;
+            margin-bottom: 15px !important;
+        }
+
+        .pdf-compact-mode .contact {
+            gap: 15px !important;
+            margin-bottom: 15px !important;
+        }
+
+        .pdf-compact-mode .contact-item {
+            padding: 6px 12px !important;
+            font-size: 0.8em !important;
+        }
+
+        .pdf-compact-mode h2 {
+            font-size: 1.4em !important;
+            margin-bottom: 12px !important;
+        }
+
+        .pdf-compact-mode section {
+            margin-bottom: 20px !important;
+        }
+
+        .pdf-compact-mode .job-description {
+            margin-bottom: 12px !important;
+            line-height: 1.4 !important;
+        }
+
+        .pdf-compact-mode ul li {
+            padding: 8px !important;
+            margin-bottom: 8px !important;
+            line-height: 1.4 !important;
+        }
+
+        .pdf-compact-mode .job-header {
+            padding: 10px !important;
+            margin-bottom: 10px !important;
+        }
+
+        .pdf-compact-mode .job-meta {
+            font-size: 0.9em !important;
+        }
+
+        .pdf-compact-mode .tech-stack {
+            padding: 12px !important;
+            margin-top: 12px !important;
+        }
+
+        .pdf-compact-mode .tech-stack span {
+            padding: 2px 8px !important;
+            font-size: 0.75em !important;
+            margin: 2px 4px 2px 0 !important;
+        }
+
+        .pdf-compact-mode .education-item {
+            padding: 12px !important;
+            margin-bottom: 10px !important;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+                padding: 0;
+            }
+
+            .container {
+                background: white !important;
+                box-shadow: none !important;
+                padding: 20px !important;
+                border-radius: 0 !important;
+                border: none !important;
+            }
+
+            .contact-item {
+                background: #f0f0f0 !important;
+                color: black !important;
+                border: 1px solid #ccc !important;
+                padding: 8px 15px !important;
+            }
+
+            .tech-stack {
+                background: #f9f9f9 !important;
+                border: 1px solid #ddd !important;
+            }
+
+            .tech-stack span {
+                background: #e0e0e0 !important;
+                color: black !important;
+                border: 1px solid #ccc !important;
+            }
+
+            h1, h2, h3 {
+                color: black !important;
+            }
+
+            .job-header {
+                background: #f5f5f5 !important;
+                border: 1px solid #ddd !important;
+            }
+        }
+    </style>
+
+    <script>
+        // Mobile-friendly enhancements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Improve touch scrolling on mobile
+            if ('ontouchstart' in window) {
+                document.body.style.webkitOverflowScrolling = 'touch';
+            }
+
+            // Add smooth scrolling for anchor links
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add loading animation
+            const container = document.querySelector('.container');
+            container.style.opacity = '0';
+            setTimeout(() => {
+                container.style.transition = 'opacity 0.8s ease-in-out';
+                container.style.opacity = '1';
+            }, 100);
+
+            // Improve mobile keyboard handling
+            const inputs = document.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    if (window.innerWidth <= 768) {
+                        setTimeout(() => {
+                            this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }, 300);
+                    }
+                });
+            });
+
+            // Add viewport height fix for mobile browsers
+            function setVH() {
+                const vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            }
+
+            setVH();
+            window.addEventListener('resize', setVH);
+            window.addEventListener('orientationchange', setVH);
+
+            // Add performance optimizations
+            let resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    // Handle resize events with debounce
+                    setVH();
+                }, 250);
+            });
+
+            // Add accessibility improvements
+            const contactLinks = document.querySelectorAll('.contact-item a');
+            contactLinks.forEach(link => {
+                link.setAttribute('aria-label', link.textContent.trim());
+            });
+
+            // Add print optimization
+            window.addEventListener('beforeprint', function() {
+                document.body.classList.add('printing');
+            });
+
+            window.addEventListener('afterprint', function() {
+                document.body.classList.remove('printing');
+            });
+        });
+
+        // PWA-like features for better mobile experience
+        if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
+            // Service worker can be added here for offline functionality
+        }
+
+        // Add passive event listeners for better scroll performance
+        let supportsPassive = false;
+        try {
+            const opts = Object.defineProperty({}, 'passive', {
+                get: function() {
+                    supportsPassive = true;
+                    return true;
+                }
+            });
+            window.addEventListener('testPassive', null, opts);
+            window.removeEventListener('testPassive', null, opts);
+        } catch (e) {}
+
+        // Improve touch interactions
+        const touchElements = document.querySelectorAll('.contact-item, .tech-stack span, ul li');
+        touchElements.forEach(element => {
+            element.addEventListener('touchstart', function() {}, supportsPassive ? { passive: true } : false);
+        });
+
+        // Helper function to remove emojis and special characters
+        function cleanText(text) {
+            if (!text) return '';
+            
+            // First, remove common emoji patterns
+            let cleaned = text
+                .replace(/[\u{1F300}-\u{1F9FF}]/gu, '') // Emojis
+                .replace(/[\u{2600}-\u{26FF}]/gu, '') // Miscellaneous symbols
+                .replace(/[\u{2700}-\u{27BF}]/gu, '') // Dingbats
+                .replace(/[\u{1F600}-\u{1F64F}]/gu, '') // Emoticons
+                .replace(/[\u{1F680}-\u{1F6FF}]/gu, '') // Transport symbols
+                .replace(/[\u{1F700}-\u{1F77F}]/gu, '') // Alchemical symbols
+                .replace(/[\u{1F780}-\u{1F7FF}]/gu, '') // Geometric shapes
+                .replace(/[\u{1F800}-\u{1F8FF}]/gu, '') // Supplemental arrows
+                .replace(/[\u{1F900}-\u{1F9FF}]/gu, '') // Supplemental symbols
+                .replace(/[\u{1FA00}-\u{1FA6F}]/gu, '') // Chess symbols
+                .replace(/[\u{1FA70}-\u{1FAFF}]/gu, '') // Symbols and pictographs
+                .replace(/[\u{FE00}-\u{FE0F}]/gu, '') // Variation selectors
+                .replace(/[\u{200D}]/gu, '') // Zero width joiner
+                .replace(/[\u{FEFF}]/gu, '') // Zero width no-break space
+                .replace(/[\u{00A0}]/gu, ' '); // Non-breaking space to regular space
+            
+            // Remove any remaining non-printable ASCII characters except common punctuation
+            cleaned = cleaned.replace(/[^\x20-\x7E\u00A0-\uFFFF]/g, '');
+            
+            // Remove leading/trailing special characters that might be leftover
+            cleaned = cleaned.replace(/^[\s\u00A0\u2000-\u200B\u2028-\u2029\uFEFF]+/, '');
+            cleaned = cleaned.replace(/[\s\u00A0\u2000-\u200B\u2028-\u2029\uFEFF]+$/, '');
+            
+            return cleaned.trim();
+        }
+
+        // Extract resume data from DOM
+        function extractResumeData() {
+            const data = {
+                name: cleanText(document.querySelector('h1').textContent),
+                location: cleanText(document.querySelector('.location').textContent),
+                contact: Array.from(document.querySelectorAll('.contact-item')).map(item => {
+                    // Get text content and URL, handling links
+                    let text = '';
+                    let url = '';
+                    const link = item.querySelector('a');
+                    if (link) {
+                        text = link.textContent.trim();
+                        url = link.getAttribute('href') || '';
+                    } else {
+                        text = item.textContent.trim();
+                        // Extract email address if present
+                        const emailMatch = text.match(/[\w\.-]+@[\w\.-]+\.\w+/);
+                        if (emailMatch) {
+                            url = 'mailto:' + emailMatch[0];
+                            text = emailMatch[0]; // Use just the email, not the emoji
+                        }
+                    }
+                    // Special handling for LinkedIn and GitHub
+                    const cleanedText = cleanText(text);
+                    if (cleanedText.toLowerCase().includes('linkedin') || cleanedText.toLowerCase().includes('profile')) {
+                        url = 'https://www.linkedin.com/in/james-lin-24648759/';
+                    } else if (cleanedText.toLowerCase().includes('github')) {
+                        url = 'https://jameslintech-create.github.io/Resume/';
+                    }
+                    return {
+                        text: cleanedText,
+                        url: url
+                    };
+                }),
+                summary: cleanText(document.querySelector('section').querySelector('p.job-description')?.textContent || ''),
+                education: (() => {
+                    const eduItem = document.querySelector('.education-item');
+                    if (!eduItem) return { degree: '', details: '', period: '' };
+                    
+                    const degree = cleanText(eduItem.querySelector('strong')?.textContent || '');
+                    const emText = eduItem.querySelector('em')?.textContent || '';
+                    const fullText = cleanText(eduItem.textContent || '');
+                    
+                    // Extract period (format: | Jan 2011 – Dec 2012)
+                    const periodMatch = fullText.match(/\|\s*([A-Za-z]{3}\s+\d{4}\s*–\s*[A-Za-z]{3}\s+\d{4})/);
+                    const period = periodMatch ? periodMatch[1].trim() : '';
+                    
+                    // Get details (degree name without period)
+                    const details = cleanText(emText);
+                    
+                    return { degree, details, period };
+                })(),
+                experience: []
+            };
+
+            // Extract experience
+            const experienceSection = Array.from(document.querySelectorAll('section')).find(s => 
+                s.querySelector('h2')?.textContent.includes('Experience')
+            );
+            
+            if (experienceSection) {
+                const jobDivs = experienceSection.querySelectorAll('div[style*="margin-bottom"]');
+                jobDivs.forEach(jobDiv => {
+                    const job = {
+                        title: cleanText(jobDiv.querySelector('h3')?.textContent || ''),
+                        company: cleanText(jobDiv.querySelector('.company')?.textContent || ''),
+                        period: cleanText(jobDiv.querySelector('.job-meta')?.textContent || ''),
+                        description: cleanText(jobDiv.querySelector('.job-description')?.textContent || ''),
+                        achievements: Array.from(jobDiv.querySelectorAll('ul li')).map(li => {
+                            const text = li.textContent.trim();
+                            return cleanText(text.replace(/^✓\s*/, ''));
+                        }),
+                        techStack: []
+                    };
+                    
+                    const techStackDiv = jobDiv.querySelector('.tech-stack');
+                    if (techStackDiv) {
+                        job.techStack = Array.from(techStackDiv.querySelectorAll('span')).map(span =>
+                            cleanText(span.textContent)
+                        );
+                    }
+                    
+                    if (job.title) {
+                        data.experience.push(job);
+                    }
+                });
+            }
+
+            return data;
+        }
+
+        // Download existing PDF file
+        function generatePDF() {
+            const button = document.getElementById('generatePdfBtn');
+            const originalText = button.textContent;
+
+            button.textContent = '⏳ Downloading...';
+            button.disabled = true;
+
+            try {
+                // Create a link to download the existing PDF file
+                const link = document.createElement('a');
+                link.href = 'Resume_James_Lin.pdf';
+                link.download = 'Resume_James_Lin.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                button.textContent = '✅ PDF Downloaded!';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                }, 3000);
+
+            } catch (error) {
+                console.error('PDF download failed:', error);
+                button.textContent = '❌ Failed - Try Again';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                }, 3000);
+            }
+        }
+
+        // Free AI Assistant Functions (No API Key Required)
+        function openAIAssistant() {
+            const modal = document.getElementById('aiAssistantModal');
+            modal.style.display = 'block';
+            document.getElementById('aiInput').focus();
+        }
+
+        function closeAIAssistant() {
+            const modal = document.getElementById('aiAssistantModal');
+            modal.style.display = 'none';
+        }
+
+        function toggleApiKeyInput() {
+            // Hide API key section for free version
+            const container = document.getElementById('aiApiKeyContainer');
+            if (container) {
+                container.style.display = 'none';
+            }
+        }
+
+        function handleAIKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendAIMessage();
+            }
+        }
+
+        function addAIMessage(text, type = 'bot') {
+            const container = document.getElementById('aiChatContainer');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `ai-message ai-${type}-message`;
+            messageDiv.innerHTML = `<p>${text}</p>`;
+            container.appendChild(messageDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        // Free AI Assistant - Rule-based intelligent responses
+        function sendAIMessage() {
+            const input = document.getElementById('aiInput');
+            const userMessage = input.value.trim().toLowerCase();
+            
+            if (!userMessage) return;
+
+            // Add user message
+            addAIMessage(input.value.trim(), 'user');
+            input.value = '';
+
+            // Show thinking animation
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'ai-message ai-bot-message';
+            loadingDiv.innerHTML = '<p>🤔 Analyzing your resume...</p>';
+            const container = document.getElementById('aiChatContainer');
+            container.appendChild(loadingDiv);
+            container.scrollTop = container.scrollHeight;
+
+            // Simulate thinking delay for better UX
+            setTimeout(() => {
+                container.removeChild(loadingDiv);
+                
+                // Get resume data
+                const resumeData = extractResumeData();
+                const response = generateAIResponse(userMessage, resumeData);
+                addAIMessage(response, 'bot');
+            }, 800);
+        }
+
+        function generateAIResponse(userMessage, resumeData) {
+            // Analyze resume
+            const analysis = analyzeResume(resumeData);
+            
+            // Keyword matching for different types of questions
+            if (userMessage.includes('improve') || userMessage.includes('optimize') || userMessage.includes('better')) {
+                return generateImprovementSuggestions(resumeData, analysis);
+            }
+            
+            if (userMessage.includes('summary') || userMessage.includes('about me')) {
+                return generateSummaryAdvice(resumeData);
+            }
+            
+            if (userMessage.includes('experience') || userMessage.includes('job') || userMessage.includes('work')) {
+                return generateExperienceAdvice(resumeData, analysis);
+            }
+            
+            if (userMessage.includes('skill') || userMessage.includes('tech') || userMessage.includes('technology')) {
+                return generateSkillsAdvice(resumeData, analysis);
+            }
+            
+            if (userMessage.includes('length') || userMessage.includes('page') || userMessage.includes('long')) {
+                return generateLengthAdvice(resumeData);
+            }
+            
+            if (userMessage.includes('keyword') || userMessage.includes('ats') || userMessage.includes('applicant')) {
+                return generateATSAdvice(resumeData);
+            }
+            
+            if (userMessage.includes('format') || userMessage.includes('layout') || userMessage.includes('design')) {
+                return generateFormatAdvice();
+            }
+            
+            if (userMessage.includes('quantify') || userMessage.includes('number') || userMessage.includes('metric')) {
+                return generateQuantifyAdvice(resumeData, analysis);
+            }
+            
+            // Default response
+            return generateDefaultResponse(resumeData, analysis);
+        }
+
+        function analyzeResume(data) {
+            const analysis = {
+                hasQuantifiableResults: false,
+                averageJobDescriptionLength: 0,
+                techStackCount: 0,
+                totalExperience: 0,
+                hasStrongActionVerbs: false,
+                summaryLength: data.summary.length
+            };
+            
+            // Check for quantifiable results
+            const quantifiableWords = ['%', 'improved', 'increased', 'decreased', 'reduced', 'achieved', 'delivered', 'scaled'];
+            const allText = JSON.stringify(data).toLowerCase();
+            analysis.hasQuantifiableResults = quantifiableWords.some(word => allText.includes(word));
+            
+            // Calculate average job description length
+            if (data.experience.length > 0) {
+                const totalLength = data.experience.reduce((sum, job) => sum + (job.description?.length || 0), 0);
+                analysis.averageJobDescriptionLength = totalLength / data.experience.length;
+            }
+            
+            // Count tech stack items
+            data.experience.forEach(job => {
+                analysis.techStackCount += job.techStack?.length || 0;
+            });
+            
+            // Check for action verbs
+            const actionVerbs = ['built', 'developed', 'designed', 'led', 'architected', 'delivered', 'implemented', 'created'];
+            analysis.hasStrongActionVerbs = actionVerbs.some(verb => allText.includes(verb));
+            
+            return analysis;
+        }
+
+        function generateImprovementSuggestions(data, analysis) {
+            let suggestions = '📊 **Resume Analysis & Improvement Suggestions:**\n\n';
+            const improvements = [];
+            
+            if (!analysis.hasQuantifiableResults) {
+                improvements.push('✨ **Add Quantifiable Results**: Include specific numbers, percentages, or metrics. For example: "Improved performance by 30%" or "Reduced latency by 50ms"');
+            }
+            
+            if (analysis.averageJobDescriptionLength < 100) {
+                improvements.push('📝 **Expand Job Descriptions**: Your job descriptions could be more detailed. Add specific achievements and technologies used.');
+            }
+            
+            if (data.experience.length < 3) {
+                improvements.push('💼 **Highlight More Experience**: Consider adding more detail about your projects and achievements.');
+            }
+            
+            if (analysis.summaryLength < 200) {
+                improvements.push('📋 **Enhance Summary**: Your summary could be more comprehensive. Include key achievements and years of experience.');
+            }
+            
+            if (!analysis.hasStrongActionVerbs) {
+                improvements.push('⚡ **Use Strong Action Verbs**: Start bullet points with powerful verbs like "Architected", "Led", "Delivered", "Scaled"');
+            }
+            
+            if (improvements.length === 0) {
+                suggestions += '✅ Your resume looks strong! Here are some general tips:\n\n';
+                improvements.push('🎯 **Tailor for Each Job**: Customize your resume for each position you apply to');
+                improvements.push('📈 **Keep It Updated**: Regularly update your resume with new skills and achievements');
+                improvements.push('🔍 **Proofread**: Ensure there are no typos or grammatical errors');
+            }
+            
+            suggestions += improvements.join('\n\n');
+            return suggestions;
+        }
+
+        function generateSummaryAdvice(data) {
+            let advice = '📝 **Summary Section Advice:**\n\n';
+            
+            if (data.summary.length < 150) {
+                advice += 'Your summary is quite brief. Consider expanding it to include:\n\n';
+                advice += '• Years of experience: "' + (data.experience.length * 2) + '+ years of experience"\n';
+                advice += '• Key expertise areas\n';
+                advice += '• Major achievements or specializations\n';
+                advice += '• Career focus or goals\n\n';
+            } else {
+                advice += 'Your summary has good length. Make sure it includes:\n\n';
+            }
+            
+            advice += '✅ **Best Practices:**\n';
+            advice += '• Keep it to 3-4 sentences\n';
+            advice += '• Start with your role/level (e.g., "Staff-level backend engineer")\n';
+            advice += '• Highlight key technologies or domains\n';
+            advice += '• Mention years of experience\n';
+            advice += '• Focus on value you bring\n\n';
+            
+            advice += '💡 **Example Structure:**\n';
+            advice += '[Role] with [X] years of experience in [domain]. Proven success in [key achievement]. Skilled in [technologies]. Currently focused on [current focus].';
+            
+            return advice;
+        }
+
+        function generateExperienceAdvice(data, analysis) {
+            let advice = '💼 **Experience Section Advice:**\n\n';
+            
+            advice += `You have ${data.experience.length} positions listed. Here's how to optimize each entry:\n\n`;
+            
+            advice += '✅ **Structure Each Job:**\n';
+            advice += '1. **Job Title & Company** (with dates)\n';
+            advice += '2. **Brief Description** (1-2 sentences about your role)\n';
+            advice += '3. **Key Achievements** (3-5 bullet points with metrics)\n';
+            advice += '4. **Tech Stack** (relevant technologies)\n\n';
+            
+            advice += '📊 **Bullet Point Best Practices:**\n';
+            advice += '• Start with action verbs (Built, Led, Architected, Delivered)\n';
+            advice += '• Include quantifiable results (numbers, percentages, scale)\n';
+            advice += '• Focus on impact and outcomes\n';
+            advice += '• Use specific technologies and tools\n';
+            advice += '• Show progression and growth\n\n';
+            
+            if (!analysis.hasQuantifiableResults) {
+                advice += '⚠️ **Add Metrics**: Your experience descriptions would benefit from specific numbers. Examples:\n';
+                advice += '• "Improved system performance by 40%"\n';
+                advice += '• "Reduced latency from 500ms to 200ms"\n';
+                advice += '• "Scaled system to handle 1M+ requests/day"\n';
+            }
+            
+            return advice;
+        }
+
+        function generateSkillsAdvice(data, analysis) {
+            let advice = '🛠️ **Skills & Tech Stack Advice:**\n\n';
+            
+            const allTech = new Set();
+            data.experience.forEach(job => {
+                job.techStack?.forEach(tech => allTech.add(tech));
+            });
+            
+            advice += `You've mentioned ${allTech.size} different technologies across your experience.\n\n`;
+            
+            advice += '✅ **Best Practices:**\n';
+            advice += '• List technologies relevant to the job you are applying for\n';
+            advice += '• Group by category (Languages, Frameworks, Tools, etc.)\n';
+            advice += '• Include both current and past technologies\n';
+            advice += '• Be honest about proficiency levels\n\n';
+            
+            advice += '📋 **Suggested Categories:**\n';
+            advice += '• Programming Languages\n';
+            advice += '• Frameworks & Libraries\n';
+            advice += '• Databases & Storage\n';
+            advice += '• Cloud & Infrastructure\n';
+            advice += '• Tools & DevOps\n';
+            advice += '• Methodologies (Agile, CI/CD, etc.)\n\n';
+            
+            if (allTech.size < 10) {
+                advice += '💡 **Tip**: Consider adding more technologies you\'ve worked with, even if briefly mentioned.';
+            }
+            
+            return advice;
+        }
+
+        function generateLengthAdvice(data) {
+            let advice = '📏 **Resume Length Advice:**\n\n';
+            
+            const totalLength = JSON.stringify(data).length;
+            const estimatedPages = Math.ceil(totalLength / 2000);
+            
+            advice += `Your resume is approximately ${estimatedPages} page(s) long.\n\n`;
+            
+            advice += '✅ **General Guidelines:**\n';
+            advice += '• **Entry Level**: 1 page\n';
+            advice += '• **Mid-Level (3-7 years)**: 1-2 pages\n';
+            advice += '• **Senior Level (7+ years)**: 2 pages is acceptable\n';
+            advice += '• **Executive/Staff Level**: 2-3 pages if needed\n\n';
+            
+            if (estimatedPages > 2) {
+                advice += '💡 **To Reduce Length:**\n';
+                advice += '• Remove older/irrelevant positions\n';
+                advice += '• Consolidate similar achievements\n';
+                advice += '• Remove redundant information\n';
+                advice += '• Focus on most recent 10-15 years\n';
+            } else if (estimatedPages < 1.5) {
+                advice += '💡 **You Have Room to Expand:**\n';
+                advice += '• Add more detail to recent positions\n';
+                advice += '• Include more achievements and metrics\n';
+                advice += '• Expand your summary section\n';
+            }
+            
+            return advice;
+        }
+
+        function generateATSAdvice(data) {
+            let advice = '🤖 **ATS (Applicant Tracking System) Optimization:**\n\n';
+            
+            advice += '✅ **Key Strategies:**\n\n';
+            advice += '1. **Use Standard Section Headers**:\n';
+            advice += '   • Summary (or Professional Summary)\n';
+            advice += '   • Experience (or Work Experience)\n';
+            advice += '   • Education\n';
+            advice += '   • Skills (or Technical Skills)\n\n';
+            
+            advice += '2. **Include Relevant Keywords**:\n';
+            advice += '   • Match keywords from job descriptions\n';
+            advice += '   • Use industry-standard terminology\n';
+            advice += '   • Include both acronyms and full names (e.g., "API" and "Application Programming Interface")\n\n';
+            
+            advice += '3. **Format Properly**:\n';
+            advice += '   • Use standard fonts (Arial, Calibri, Times New Roman)\n';
+            advice += '   • Avoid complex formatting, tables, or graphics\n';
+            advice += '   • Use simple bullet points\n';
+            advice += '   • Save as PDF for best compatibility\n\n';
+            
+            advice += '4. **Quantify Achievements**:\n';
+            advice += '   • ATS systems look for numbers and metrics\n';
+            advice += '   • Include percentages, dollar amounts, timeframes\n\n';
+            
+            advice += '5. **File Format**:\n';
+            advice += '   • PDF is preferred (as your resume already uses)\n';
+            advice += '   • Ensure text is selectable (not an image)\n';
+            
+            return advice;
+        }
+
+        function generateFormatAdvice() {
+            let advice = '🎨 **Resume Format & Design Advice:**\n\n';
+            
+            advice += '✅ **Your Current Format is Good!** Your resume uses:\n';
+            advice += '• Clean, professional design\n';
+            advice += '• Clear section headers\n';
+            advice += '• Consistent formatting\n';
+            advice += '• Good use of white space\n\n';
+            
+            advice += '💡 **Additional Tips:**\n';
+            advice += '• **Consistency**: Use the same formatting throughout\n';
+            advice += '• **Readability**: Ensure good contrast and font size\n';
+            advice += '• **Scannability**: Use bullet points and clear hierarchy\n';
+            advice += '• **Contact Info**: Keep it at the top and easily accessible\n';
+            advice += '• **PDF Format**: Always submit as PDF (which you can generate!)\n\n';
+            
+            advice += '⚠️ **What to Avoid:**\n';
+            advice += '• Overly complex designs\n';
+            advice += '• Too many colors or fonts\n';
+            advice += '• Graphics that might confuse ATS systems\n';
+            advice += '• Inconsistent date formats\n';
+            
+            return advice;
+        }
+
+        function generateQuantifyAdvice(data, analysis) {
+            let advice = '📊 **Adding Quantifiable Results:**\n\n';
+            
+            if (analysis.hasQuantifiableResults) {
+                advice += '✅ Good! You already have some quantifiable results. Here are more ideas:\n\n';
+            } else {
+                advice += '💡 Your resume would benefit from more quantifiable results. Here\'s how:\n\n';
+            }
+            
+            advice += '📈 **Types of Metrics to Include:**\n\n';
+            advice += '1. **Performance Improvements**:\n';
+            advice += '   • "Improved system performance by 40%"\n';
+            advice += '   • "Reduced latency from 500ms to 200ms"\n';
+            advice += '   • "Increased throughput by 3x"\n\n';
+            
+            advice += '2. **Scale & Volume**:\n';
+            advice += '   • "Handled 1M+ requests per day"\n';
+            advice += '   • "Managed infrastructure for 50+ services"\n';
+            advice += '   • "Processed 10TB of data daily"\n\n';
+            
+            advice += '3. **Team & Leadership**:\n';
+            advice += '   • "Led team of 4 engineers"\n';
+            advice += '   • "Mentored 3 junior developers"\n';
+            advice += '   • "Collaborated with 10+ cross-functional teams"\n\n';
+            
+            advice += '4. **Business Impact**:\n';
+            advice += '   • "Increased revenue by $2M"\n';
+            advice += '   • "Reduced costs by 30%"\n';
+            advice += '   • "Improved customer satisfaction by 25%"\n\n';
+            
+            advice += '5. **Time & Efficiency**:\n';
+            advice += '   • "Reduced deployment time from 2 hours to 15 minutes"\n';
+            advice += '   • "Cut development cycle by 50%"\n';
+            advice += '   • "Achieved 99.9% uptime"\n\n';
+            
+            advice += '💡 **How to Find Metrics**:\n';
+            advice += '• Review your performance reviews\n';
+            advice += '• Check project documentation\n';
+            advice += '• Look at system dashboards and reports\n';
+            advice += '• Ask colleagues or managers for data\n';
+            advice += '• Estimate conservatively if exact numbers aren\'t available';
+            
+            return advice;
+        }
+
+        function generateDefaultResponse(data, analysis) {
+            let response = '👋 **I\'m here to help with your resume!**\n\n';
+            
+            response += 'I can assist you with:\n\n';
+            response += '✨ **Optimization**: Ask "How can I improve my resume?"\n';
+            response += '📝 **Summary**: Ask "How can I improve my summary?"\n';
+            response += '💼 **Experience**: Ask "How can I improve my experience section?"\n';
+            response += '🛠️ **Skills**: Ask "How can I improve my skills section?"\n';
+            response += '📏 **Length**: Ask "Is my resume too long or too short?"\n';
+            response += '🤖 **ATS**: Ask "How can I optimize for ATS systems?"\n';
+            response += '📊 **Metrics**: Ask "How can I add more quantifiable results?"\n';
+            response += '🎨 **Format**: Ask "How can I improve my resume format?"\n\n';
+            
+            response += '💡 **Quick Analysis of Your Resume:**\n';
+            response += `• You have ${data.experience.length} positions listed\n`;
+            response += `• Your summary is ${data.summary.length} characters\n`;
+            if (analysis.hasQuantifiableResults) {
+                response += '• ✅ You include quantifiable results\n';
+            } else {
+                response += '• 💡 Consider adding more metrics\n';
+            }
+            
+            response += '\nWhat would you like help with?';
+            
+            return response;
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('aiAssistantModal');
+            if (event.target === modal) {
+                closeAIAssistant();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=1200&h=600&fit=crop&q=80" 
+                 alt="Golden Gate Bridge" 
+                 class="golden-gate-bridge"
+                 loading="lazy">
+            <h1>James (An) Lin</h1>
+            <div class="location">San Francisco Bay Area</div>
+            <div class="contact">
+                <div class="contact-item">📞 (408) 859-3258</div>
+                <div class="contact-item">📧 jameslin.tech@gmail.com</div>
+                <div class="contact-item">🔗 <a href="https://www.linkedin.com/in/james-lin-24648759/">LinkedIn Profile</a></div>
+            </div>
+        </header>
+
+        <section>
+            <h2>Summary</h2>
+            <p class="job-description">
+                <strong>Staff-level backend engineer with 12+ years of experience</strong> building scalable distributed systems across ad tech, ML infrastructure, and AR data platforms. Proven success in designing real-time services that power intelligent matching, ML-driven bidding, and large-scale experimentation. Skilled in translating product goals into robust backend solutions with measurable business impact. Adept at leading cross-functional initiatives and evolving platforms across complex ecosystems. Currently focused on building backend systems for ML-powered recommendation, bidding infrastructure, and experimentation at scale.
+            </p>
+        </section>
+
+        <section>
+            <h2>Core Technical Competencies</h2>
+            <div class="tech-stack">
+                <strong>Languages:</strong> <span>Java</span> <span>SQL</span><br>
+                <strong>Backend & APIs:</strong> <span>Spring Boot</span> <span>gRPC</span> <span>REST</span><br>
+                <strong>Distributed Systems:</strong> <span>Kafka</span> <span>Redis</span> <span>Feature Stores</span><br>
+                <strong>Scalability & Reliability:</strong> <span>Autoscaling</span> <span>SLO/SLA</span> <span>Canary Deployment</span> <span>Resilience Patterns</span><br>
+                <strong>Data & Experimentation:</strong> <span>Real-time ML Serving</span> <span>A/B Testing Platforms</span> <span>Internal DMP</span><br>
+                <strong>Observability & CI/CD:</strong> <span>Monitoring</span> <span>Alerting</span> <span>CI/CD Pipelines</span> <span>Progressive Rollouts</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <div class="education-item">
+                <strong>New York University</strong><br>
+                <em>Master of Science, Computer Science</em> | Jan 2011 – Jan 2013
+            </div>
+        </section>
+
+        <section>
+            <h2>Experience</h2>
+
+            <div style="margin-bottom: 30px;">
+                <div class="job-header">
+                    <h3>Software Engineer - Platform Owner</h3>
+                    <div class="job-meta">Mar 2021 – Aug 2025</div>
+                </div>
+                <div class="job-meta" style="margin-bottom: 10px;">
+                    <span class="company">Indeed</span> | Sunnyvale, CA
+                </div>
+                <p class="job-description">
+                    Translated high-level product goals and company KRs into actionable engineering initiatives within a Tier 3 organization, helping shape quarterly technical roadmaps in alignment with broader business objectives.
+                </p>
+                <ul>
+                    <li><strong>Real-time ML Scoring System</strong> – Architected and delivered a real-time ML scoring system for the Relevant Job Platform, generating dynamic bids that improved ad targeting precision and auction efficiency. Designed core components including pre-ranking, ranking, and bid adjustment logic.</li>
+                    <li><strong>High-Throughput Match Provider</strong> – Designed and built a high-throughput real-time match provider unifying targeted ads and Sponsored Jobs, achieving p95 latency under 500ms and supporting large-scale onsite impression delivery, contributing to $700M+ in annual revenue.</li>
+                    <li><strong>ML Model Transition</strong> – Led a monetization org-wide transition from XGBoost models to DNN-based models for the match provider, driving a ~30% revenue increase while maintaining latency and system stability.</li>
+                    <li><strong>Click Balancing Infrastructure</strong> – Led efforts to enable campaign-level click balancing, introducing fairness and control mechanisms that prevented traffic skew across competing campaigns, unlocking more efficient inventory utilization and incremental revenue gains.</li>
+                    <li><strong>Production Reliability</strong> – Owned production event handling for this revenue-critical serving path, driving incident triage, root cause analysis, and long-term reliability improvements, while supporting safe rollouts through canary deployments and staged releases.</li>
+                    <li><strong>Jobseeker Segmentation Infrastructure</strong> – Drove the design and delivery of jobseeker segmentation infrastructure, leading a team of 4 engineers and partnering with cross-functional stakeholders across Indeed. Enabled granular targeting and control for Sponsored Job campaigns, resulting in measurable improvements in ad performance and advertiser ROI.</li>
+                    <li><strong>A/B Testing Infrastructure</strong> – Led the design and implementation of low-interference A/B testing infrastructure for interconnected marketplaces, improving experiment accuracy and reliability while enabling safe, large-scale product experimentation.</li>
+                </ul>
+                <div class="tech-stack">
+                    <strong>Tech Stack:</strong> <span>Java</span> <span>Spring Boot</span> <span>ML Feature Store</span> <span>Redis</span> <span>Kafka</span> <span>gRPC</span> <span>Datadog</span> <span>A/B Testing Framework</span>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 30px;">
+                <div class="job-header">
+                    <h3>Senior Software Engineer</h3>
+                    <div class="job-meta">Nov 2016 – Jun 2020</div>
+                </div>
+                <div class="job-meta" style="margin-bottom: 10px;">
+                    <span class="company">Magic Leap</span> | Sunnyvale, CA
+                </div>
+                <p class="job-description">
+                    Led the design and development of large-scale data infrastructure to support real-time log processing, system monitoring, and performance analytics for AR software, embedded systems, and CI/CD pipelines.
+                </p>
+                <ul>
+                    <li><strong>Large-scale Data Infrastructure</strong> – Architected large-scale data infrastructure to support real-time log processing, system monitoring, and performance analytics, designed to scale with growing AR workloads and device fleets.</li>
+                    <li><strong>Backend Infrastructure</strong> – Built backend infrastructure for AR model evaluation, log ingestion, and telemetry analysis, ensuring low-latency data availability for debugging, validation, and regression analysis.</li>
+                    <li><strong>Real-time Streaming Pipelines</strong> – Developed real-time streaming pipelines for sensor data and embedded test logs using Kafka and Elasticsearch, balancing throughput, latency, and operational stability.</li>
+                    <li><strong>Indexing Strategy</strong> – Implemented a hot-warm-cold indexing strategy to scale historical telemetry storage while maintaining fast query performance for time-sensitive regressions.</li>
+                    <li><strong>Observability Stack</strong> – Delivered a highly available observability stack (Prometheus + Thanos), enabling metric visibility and alerting across 30+ production AR services.</li>
+                    <li><strong>Data Reconciliation Services</strong> – Built resilient reconciliation services to recover missing data across Jenkins and Git systems, ensuring data correctness, traceability, and CI/CD pipeline reliability.</li>
+                    <li><strong>CI/CD Integration</strong> – Integrated telemetry and monitoring systems with CI/CD pipelines, improving release confidence, regression detection, and operational readiness.</li>
+                    <li><strong>AI/Computer Vision Collaboration</strong> – Collaborated with AI and computer vision teams to securely stream and preprocess sensor data for internal model evaluation workflows, enabling early-stage validation of AR tracking and perception algorithms.</li>
+                </ul>
+                <div class="tech-stack">
+                    <strong>Tech Stack:</strong> <span>Java</span> <span>Kafka</span> <span>Elasticsearch</span> <span>Logstash</span> <span>Prometheus</span> <span>Thanos</span> <span>Jenkins</span> <span>RabbitMQ</span> <span>Grafana</span>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 30px;">
+                <div class="job-header">
+                    <h3>Staff Software Engineer</h3>
+                    <div class="job-meta">Dec 2014 – Nov 2016</div>
+                </div>
+                <div class="job-meta" style="margin-bottom: 10px;">
+                    <span class="company">Western Digital</span> | Mountain View, CA
+                </div>
+                <p class="job-description">
+                    Built backend services and deployment automation for WD MyCloud mobile apps across iOS and Android. Designed secure cross-device access APIs, implemented SOA-based deployment pipelines using AWS CloudFormation, and developed internal tools to monitor release quality and manage reproducible legacy build environments.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 30px;">
+                <div class="job-header">
+                    <h3>Software Engineer</h3>
+                    <div class="job-meta">Jan 2013 – Oct 2014</div>
+                </div>
+                <div class="job-meta" style="margin-bottom: 10px;">
+                    <span class="company">Fuhu</span> | San Jose, CA
+                </div>
+                <p class="job-description">
+                    Built CI/CD pipelines and centralized log collection systems for Java-based SOA services. Enabled automated build/test workflows via Jenkins and RabbitMQ, and contributed to structured log analysis supporting production monitoring and KPI tracking.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- PDF Generation Button -->
+    <div class="pdf-generator-section">
+        <button onclick="generatePDF()" class="generate-pdf-btn" id="generatePdfBtn">
+            📄 Get PDF
+        </button>
+        <button onclick="openAIAssistant()" class="generate-pdf-btn ai-assistant-btn" id="aiAssistantBtn">
+            🤖 AI Assistant
+        </button>
+    </div>
+
+    <!-- AI Assistant Modal -->
+    <div id="aiAssistantModal" class="ai-modal">
+        <div class="ai-modal-content">
+            <div class="ai-modal-header">
+                <h3>🤖 AI Resume Assistant</h3>
+                <span class="ai-close" onclick="closeAIAssistant()">&times;</span>
+            </div>
+            <div class="ai-modal-body">
+                <div class="ai-chat-container" id="aiChatContainer">
+                    <div class="ai-message ai-bot-message">
+                        <p>Hello! I'm your AI Resume Assistant. I can help you:</p>
+                        <ul>
+                            <li>✨ Optimize your resume content</li>
+                            <li>💡 Provide improvement suggestions</li>
+                            <li>📝 Help rewrite descriptions</li>
+                            <li>❓ Answer questions about your resume</li>
+                        </ul>
+                        <p>What would you like help with?</p>
+                    </div>
+                </div>
+                <div class="ai-input-container">
+                    <input type="text" id="aiInput" placeholder="Ask me anything about your resume..." 
+                           onkeypress="handleAIKeyPress(event)">
+                    <button onclick="sendAIMessage()" class="ai-send-btn">Send</button>
+                </div>
+                <div style="margin-top: 15px; padding: 10px; background: #e8f5e9; border-radius: 8px; border-left: 4px solid #27ae60;">
+                    <p style="margin: 0; font-size: 0.9em; color: #2d5016;">
+                        <strong>✨ Free AI Assistant</strong> - No API key required! This assistant uses intelligent rule-based analysis to provide personalized resume advice.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional meta tags for better web compatibility -->
+    <meta name="theme-color" content="#27ae60">
+    <meta name="msapplication-navbutton-color" content="#27ae60">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    <link rel="manifest" href="data:application/manifest+json,{'name':'James Lin Resume','short_name':'Resume','start_url':'/','display':'standalone'}">
+
+    <noscript>
+        <style>
+            body { background: #f8f9fa; }
+            .container { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+            .contact-item { background: #2980b9; color: white; }
+            .tech-stack span { background: #2980b9; color: white; }
+        </style>
+    </noscript>
+</body>
+</html>
+
